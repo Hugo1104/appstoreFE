@@ -1,8 +1,8 @@
 import { Layout, Dropdown, Menu, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
-// import LoginForm from "./components/LoginForm";
-// import HomePage from "./components/HomePage";
+import LoginForm from "./components/LoginForm";
+import HomePage from "./components/HomePage";
 
 const { Header, Content } = Layout;
 
@@ -14,9 +14,9 @@ const App = () => {
     setAuthed(authToken !== null);
   }, []);
 
-  // const handleLoginSuccess = () => {
-  //   setAuthed(true);
-  // };
+  const handleLoginSuccess = () => {
+    setAuthed(true);
+  };
 
   const handleLogOut = () => {
     localStorage.removeItem("authToken");
@@ -24,16 +24,13 @@ const App = () => {
   };
 
   const renderContent = () => {
-    return <></>;
-    // if (authed === undefined) {
-    //   return <></>;
-    // }
-
-    // if (!authed) {
-    //   return <LoginForm onLoginSuccess={handleLoginSuccess} />;
-    // }
-
-    // return <HomePage />;
+    if (authed === undefined) {
+      return <></>;
+    }
+    if (!authed) {
+      return <LoginForm onLoginSuccess={handleLoginSuccess} />;
+    }
+    return <HomePage />;
   };
 
   const userMenu = (
