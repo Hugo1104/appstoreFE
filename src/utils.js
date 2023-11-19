@@ -1,4 +1,4 @@
-const domain = "YOUR BACKEND SERVER"; // example: http://localhost:8080
+const domain = "https://appstore-402802.uc.r.appspot.com"; // example: http://localhost:8080
 
 const handleResponseStatus = (response, errMsg) => {
   const { status, ok } = response;
